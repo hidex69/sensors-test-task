@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: system
+      changes:
+        - insert:
+            tableName: sensor_type
+            columns:
+              - column: { name: name, value: "Pressure" }
+        - insert:
+            tableName: sensor_type
+            columns:
+              - column: { name: name, value: "Voltage" }
+        - insert:
+            tableName: sensor_type
+            columns:
+              - column: { name: name, value: "Temperature" }
+        - insert:
+            tableName: sensor_type
+            columns:
+              - column: { name: name, value: "Humidity" }
+
+        - insert:
+            tableName: sensor_unit
+            columns:
+              - column: { name: name, value: "bar" }
+        - insert:
+            tableName: sensor_unit
+            columns:
+              - column: { name: name, value: "voltage" }
+        - insert:
+            tableName: sensor_unit
+            columns:
+              - column: { name: name, value: "°С" }
+        - insert:
+            tableName: sensor_unit
+            columns:
+              - column: { name: name, value: "%" }
+
+        - insert:
+            tableName: app_user
+            columns:
+              - column: { name: username, value: "admin" }
+              - column: { name: password, value: "$2a$10$GuRmvnBv77HxN1uYdSGTL.3t/0/dThc9VoA1aAkbQeONrJvOLc0fe" }
+              - column: { name: role, value: "ADMINISTRATOR" }
+
+        - insert:
+            tableName: app_user
+            columns:
+              - column: { name: username, value: "user" }
+              - column: { name: password, value: "$2a$10$GuRmvnBv77HxN1uYdSGTL.3t/0/dThc9VoA1aAkbQeONrJvOLc0fe" }
+              - column: { name: role, value: "VIEWER" }
+

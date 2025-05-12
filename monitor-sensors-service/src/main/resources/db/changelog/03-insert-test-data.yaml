@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: system
+      changes:
+        - insert:
+            tableName: sensor
+            columns:
+              - column: { name: name, value: "Sensor 1" }
+              - column: { name: model, value: "SEN-001" }
+              - column: { name: range_from, value: 0 }
+              - column: { name: range_to, value: 100 }
+              - column: { name: location, value: "Room 101" }
+              - column: { name: description, value: "Pressure sensor in Room 101" }
+              - column: { name: type_id, value: 1 }
+              - column: { name: unit_id, value: 1 }
+
+        - insert:
+            tableName: sensor
+            columns:
+              - column: { name: name, value: "Sensor 2" }
+              - column: { name: model, value: "SEN-002" }
+              - column: { name: range_from, value: -10 }
+              - column: { name: range_to, value: 50 }
+              - column: { name: location, value: "Room 102" }
+              - column: { name: description, value: "Temperature sensor in Room 102" }
+              - column: { name: type_id, value: 3 }
+              - column: { name: unit_id, value: 3 }

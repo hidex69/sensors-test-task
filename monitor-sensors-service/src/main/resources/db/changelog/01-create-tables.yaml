@@ -1,0 +1,129 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: system
+      changes:
+        - createTable:
+            tableName: sensor_type
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+        - createTable:
+            tableName: sensor_unit
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+        - createTable:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: username
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: sensor
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+
+              - column:
+                  name: name
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: model
+                  type: VARCHAR(15)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: range_from
+                  type: INT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: range_to
+                  type: INT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: location
+                  type: VARCHAR(40)
+
+              - column:
+                  name: description
+                  type: VARCHAR(200)
+
+              - column:
+                  name: type_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: unit_id
+                  type: BIGINT
+
+        - addForeignKeyConstraint:
+            baseTableName: sensor
+            baseColumnNames: type_id
+            referencedTableName: sensor_type
+            referencedColumnNames: id
+            onDelete: CASCADE
+            constraintName: fk_sensor_type
+
+        - addForeignKeyConstraint:
+            baseTableName: sensor
+            baseColumnNames: unit_id
+            referencedTableName: sensor_unit
+            referencedColumnNames: id
+            onDelete: SET NULL
+            constraintName: fk_sensor_unit
