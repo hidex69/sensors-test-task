@@ -4,6 +4,7 @@ import com.example.monitorsensors.dto.SensorRequest;
 import com.example.monitorsensors.dto.SensorResponse;
 import com.example.monitorsensors.dto.SensorStatisticsResponse;
 import com.example.monitorsensors.service.SensorService;
+import com.example.monitorsensors.service.SensorServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
